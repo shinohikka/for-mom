@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Любимой мамуле ❤️</title>
+    <style>
+        body {
+            background: #fffafa; /* Бело-розовый оттенок */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            color: #5d4037;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(210, 105, 30, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid #fce4ec;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Декоративные цветы по углам */
+        .card::before, .card::after {
+            content: '🌸';
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.5;
+        }
+        .card::before { top: 10px; left: 10px; }
+        .card::after { bottom: 10px; right: 10px; }
+
+        h1 {
+            color: #d81b60;
+            font-size: 26px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards 0.5s;
+        }
+
+        .main-img {
+            width: 50%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1.5s;
+        }
+
+        .signature {
+            font-style: italic;
+            color: #880e4f;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Эффект плавающих лепестков */
+        .petal {
+            position: absolute;
+            color: #ffc1e3;
+            animation: fall 5s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Мамуля, я тебя очень сильно люблю! ✨</h1>
+        
+        <!-- Картинка с нежными цветами -->
+        <img src="https://content3.flowwow-images.com/data/assortment/range_types/icons/1770033361_84049308.png"
+             alt="Цветы для мамы" class="main-img">
+
+        <p>
+            Спасибо тебе за твою бесконечную <br>
+            <strong>доброту, тепло, заботу и поддержку.</strong> <br>
+            Пусть каждый твой день будет <br>
+            наполнен радостью и светом!
+        </p>
+
+        <div class="signature">Удачи на работе, твой сынуля ❤️</div>
+    </div>
+
+    <!-- Скрипт для создания падающих лепестков -->
+    <script>
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.innerHTML = '🌸';
+            petal.className = 'petal';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+            petal.style.fontSize = Math.random() * 10 + 10 + 'px';
+            document.body.appendChild(petal);
+            setTimeout(() => petal.remove(), 5000);
+        }
+        setInterval(createPetal, 500);
+    </script>
+
+</body>
+</html>
